@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedido Rapido IPEF</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <div class="hero-main">
+            <div class="hero-content">
+              <p class="eyebrow">Cantina IPEF</p>
+              <div class="hero-title-row">
+                <h1>Pedido Rapido</h1>
+                <div class="hero-contact">
+                  <a
+                    class="whatsapp-link"
+                    href="https://wa.me/5491166038288"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="Contactar a la administracion por WhatsApp"
+                  >
+                    <span class="whatsapp-icon" aria-hidden="true">W</span>
+                    <span>Administracion</span>
+                  </a>
+                </div>
+              </div>
+              <p class="hero-text">
+                Para evitar la fila, podes hacer tu pedido por aca! mas rapido,
+                mas seguro.
+              </p>
+            </div>
+          </div>
+
+          <div class="share-box">
+            <div>
+              <p class="eyebrow">Compartir</p>
+              <p class="share-copy">
+                Mostra este Qr a tus companeros para que puedan escanearlo y abrir nuestra pagina.
+              </p>
+            </div>
+            <img id="shareQrImage" class="share-qr-image" alt="QR para abrir la pagina" />
+          </div>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="catalog-section">
+          <div class="section-heading">
+            <p class="eyebrow">Kiosko</p>
+            <h2>Elegi por familia</h2>
+          </div>
+          <div class="family-list" id="familyList"></div>
+        </section>
+      </main>
+    </div>
+
+    <button id="floatingCartBtn" class="floating-cart-btn" type="button" aria-label="Abrir carrito">
+      <span class="floating-cart-icon">&#128722;</span>
+      <span>Carrito</span>
+      <strong id="floatingCartCount">0</strong>
+    </button>
+
+    <div id="cartBackdrop" class="overlay hidden"></div>
+    <aside id="cartDrawer" class="cart-drawer hidden" aria-label="Carrito de compras">
+      <div class="drawer-header">
+        <div>
+          <p class="eyebrow">Tu pedido</p>
+          <h2>Carrito</h2>
+        </div>
+        <button id="closeCartBtn" class="icon-btn" type="button" aria-label="Cerrar carrito">&times;</button>
+      </div>
+
+      <div id="cartItems" class="drawer-items"></div>
+
+      <div class="drawer-footer">
+        <div class="summary-line">
+          <span>Total</span>
+          <strong id="cartTotal">$0</strong>
+        </div>
+        <div class="drawer-footer-actions">
+          <button id="continueShoppingBtn" class="secondary-btn" type="button">
+            Seguir comprando
+          </button>
+          <button id="checkoutBtn" class="primary-btn" type="button">
+            Finalizar pedido
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <div id="promoModal" class="modal-overlay hidden">
+      <div class="promo-modal">
+        <div class="drawer-header">
+          <div>
+            <p class="eyebrow">Empanadas</p>
+            <h2>Arma tu promo x3</h2>
+          </div>
+          <button id="closePromoBtn" class="icon-btn" type="button" aria-label="Cerrar promo">&times;</button>
+        </div>
+
+        <p class="promo-copy">Elegi las 3 empanadas que van dentro de la promo.</p>
+        <div id="promoSelectors" class="promo-selectors"></div>
+        <button id="confirmPromoBtn" class="primary-btn" type="button">Agregar promo al carrito</button>
+      </div>
+    </div>
+
+    <div id="productModal" class="modal-overlay hidden">
+      <div class="product-modal">
+        <div class="drawer-header">
+          <div>
+            <p id="productModalFamily" class="eyebrow">Producto</p>
+            <h2 id="productModalTitle">Detalle</h2>
+          </div>
+          <button id="closeProductBtn" class="icon-btn" type="button" aria-label="Cerrar detalle">&times;</button>
+        </div>
+
+        <p id="productModalDescription" class="product-modal-copy"></p>
+
+        <div class="product-modal-summary">
+          <strong id="productModalPrice"></strong>
+          <span id="productModalHint"></span>
+        </div>
+
+        <div id="productModalActions" class="product-modal-actions"></div>
+      </div>
+    </div>
+
+    <div id="paymentModal" class="modal-overlay hidden">
+      <div class="payment-modal">
+        <div class="drawer-header">
+          <div>
+            <p class="eyebrow">Pago</p>
+            <h2>Como queres pagar?</h2>
+          </div>
+          <button id="closePaymentBtn" class="icon-btn" type="button" aria-label="Cerrar opciones de pago">
+            &times;
+          </button>
+        </div>
+
+        <div class="payment-options">
+          <button class="payment-option-btn" type="button" data-payment-option="Efectivo">
+            Efectivo
+          </button>
+          <button class="payment-option-btn" type="button" data-payment-option="Transferencia">
+            Transferencia
+          </button>
+          <button class="payment-option-btn" type="button" data-payment-option="QR">
+            QR
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <section id="printTicket" class="print-ticket" aria-hidden="true">
+      <div class="print-ticket-inner">
+        <p class="print-ticket-brand">Cantina IPEF</p>
+        <h2 class="print-ticket-title">Comanda</h2>
+        <div class="print-ticket-meta">
+          <div>
+            <span>Pedido</span>
+            <strong id="printOrderCode">-</strong>
+          </div>
+          <div>
+            <span>Pago</span>
+            <strong id="printPaymentMethod">-</strong>
+          </div>
+          <div>
+            <span>Hora</span>
+            <strong id="printCreatedAt">-</strong>
+          </div>
+        </div>
+        <div id="printItems" class="print-ticket-items"></div>
+        <div class="print-ticket-total">
+          <span>Total</span>
+          <strong id="printOrderTotal">$0</strong>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+    <script src="./products.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

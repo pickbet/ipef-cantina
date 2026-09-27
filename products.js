@@ -1,0 +1,52 @@
+const MENU_FAMILIES = [
+  {
+    id: "empanadas",
+    name: "Empanadas",
+    icon: "\uD83E\uDD5F",
+    accent: "warm",
+    items: [
+      { id: "emp-pollo", name: "Pollo", price: 1500, type: "single", plu: "1314", description: "Empanada clasica de pollo, ideal para una opcion suave y rendidora." },
+      { id: "emp-arabes", name: "Arabes", price: 1500, type: "single", plu: "1309", description: "Empanada arabe con sabor especiado y masa dorada." },
+      { id: "emp-carne-salada", name: "Carne Salada", price: 1500, type: "single", plu: "1311", description: "Relleno de carne bien condimentada, estilo cantina." },
+      { id: "emp-bondiola", name: "Bondiola", price: 1500, type: "single", plu: "1312", description: "Empanada de bondiola con sabor intenso y jugoso." },
+      { id: "emp-jyq", name: "Jamon y Queso", price: 1500, type: "single", plu: "1310", description: "La opcion clasica de jamon y queso, cremosa y muy elegida." },
+      {
+        id: "promo-empanadas",
+        name: "Promo 3 emp.",
+        price: 4000,
+        type: "combo",
+        plu: "1315",
+        comboSize: 3,
+        options: ["Pollo", "Arabes", "Carne Salada", "Bondiola", "Jamon y Queso"],
+        description: "Promo especial de 3 empanadas por $4000. Al agregarla podes elegir las variedades.",
+      },
+    ],
+  },
+  {
+    id: "cafeteria",
+    name: "Cafeteria",
+    icon: "\u2615",
+    accent: "coffee",
+    items: [
+      { id: "caf-chico", name: "Cafe Chico", price: 1500, type: "single", plu: "2001", description: "Cafe corto y simple para una pausa rapida." },
+      { id: "caf-jarrito", name: "Cafe Jarrito", price: 1800, type: "single", plu: "2002", description: "Cafe en jarrito, mas grande y reconfortante." },
+      { id: "caf-doble", name: "Cafe Doble", price: 2200, type: "single", plu: "2003", description: "Doble carga para quienes necesitan mas energia." },
+      { id: "caf-llevar", name: "Cafe para llevar", price: 1900, type: "single", plu: "2004", description: "Cafe listo para seguir camino sin frenar tu dia." },
+      { id: "promo-cafe-panificados", name: "Promo Cafe + 2 panificados", price: 3500, type: "single", plu: "2099", description: "Combo de cafe mas dos piezas de panificado para un desayuno completo." },
+      { id: "medialunas", name: "Medialunas", price: 1200, type: "single", plu: "2005", description: "Medialunas tiernas, ideales para acompanar el cafe." },
+      { id: "criollos", name: "Criollos", price: 1200, type: "single", plu: "2006", description: "Criollos salados y crocantes, clasicos de la cantina." },
+    ],
+  },
+  {
+    id: "sandwiches",
+    name: "Sandwich",
+    icon: "\uD83E\uDD6A",
+    accent: "fresh",
+    items: [
+      { id: "milanesa", name: "Milanesa", price: 4500, type: "single", plu: "3001", description: "Sandwich de milanesa abundante para una comida completa." },
+      { id: "pebete", name: "Pebete (Salame, Jamon y Queso)", price: 3200, type: "single", plu: "3002", description: "Pebete fresco con salame, jamon y queso." },
+      { id: "sand-miga", name: "Sand Miga", price: 2600, type: "single", plu: "3003", description: "Sandwich de miga liviano y practico para cualquier momento." },
+      { id: "tortuguita", name: "Tortuguita", price: 2800, type: "single", plu: "3004", description: "Pan tortuguita relleno, ideal para una opcion rapida." },
+    ],
+  },
+];

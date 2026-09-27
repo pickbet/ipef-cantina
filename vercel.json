@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/empleado",
+      "destination": "/empleado.html"
+    }
+  ]
+}

@@ -25,6 +25,10 @@
   ],
   "rewrites": [
     {
+      "source": "/api/print-order",
+      "destination": "/api/print-order.js"
+    },
+    {
       "source": "/empleado",
       "destination": "/empleado.html"
     }
